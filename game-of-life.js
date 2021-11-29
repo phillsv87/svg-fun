@@ -424,38 +424,34 @@
     },false)
     inputOverlay.addEventListener('touchmove',(e)=>{
         if(gestStart && gest){
-                try{
-                const ptA=findTouchPoint(e.touches,gestStart.a.id);
-                const ptB=findTouchPoint(e.touches,gestStart.b.id);
-                if(ptA && ptB){
-                    gest.a.x=ptA.pageX;
-                    gest.a.y=ptA.pageY;
-                    gest.b.x=ptB.pageX;
-                    gest.b.y=ptB.pageY;
-                    const startDist=getPtDist(gestStart.a,gestStart.b);
-                    const dist=getPtDist(gest.a,gest.b);
+            const ptA=findTouchPoint(e.touches,gestStart.a.id);
+            const ptB=findTouchPoint(e.touches,gestStart.b.id);
+            if(ptA && ptB){
+                gest.a.x=ptA.pageX;
+                gest.a.y=ptA.pageY;
+                gest.b.x=ptB.pageX;
+                gest.b.y=ptB.pageY;
+                const startDist=getPtDist(gestStart.a,gestStart.b);
+                const dist=getPtDist(gest.a,gest.b);
 
-                    const startCenter=getPtCenter(gestStart.a,gestStart.b);
-                    const center=getPtCenter(gest.a,gest.b);
+                const startCenter=getPtCenter(gestStart.a,gestStart.b);
+                const center=getPtCenter(gest.a,gest.b);
 
-                    const diffScale=dist/startDist;
-                    scale=gestStartScale*diffScale;
+                const diffScale=dist/startDist;
+                scale=gestStartScale*diffScale;
 
-                    const ww=window.innerWidth;
-                    const wh=window.innerHeight;
+                const ww=window.innerWidth;
+                const wh=window.innerHeight;
 
-                    const zoomXOffset=Math.round((ww/scale-ww/gestStartScale)*gestCenterXR/blockSize);
-                    const zoomYOffset=Math.round((wh/scale-wh/gestStartScale)*gestCenterYR/blockSize);
+                const zoomXOffset=Math.round((ww/scale-ww/gestStartScale)*gestCenterXR/blockSize);
+                const zoomYOffset=Math.round((wh/scale-wh/gestStartScale)*gestCenterYR/blockSize);
 
 
-                    offsetX=gestStartOffsetX-Math.round((center.x-startCenter.x)/blockSize/scale)-zoomXOffset;
-                    offsetY=gestStartOffsetY-Math.round((center.y-startCenter.y)/blockSize/scale)-zoomYOffset;
+                offsetX=gestStartOffsetX-Math.round((center.x-startCenter.x)/blockSize/scale)-zoomXOffset;
+                offsetY=gestStartOffsetY-Math.round((center.y-startCenter.y)/blockSize/scale)-zoomYOffset;
 
-                    draw();
-                }
-                }catch(ex){
-                    inputOverlay.innerText=JSON.stringify({error:true,ex:ex.message},null,4)
-                }
+                draw();
+            }
 
         }else if(isMouseDown){
             dragAdd=true;
