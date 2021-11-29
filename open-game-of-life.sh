@@ -1,0 +1,1 @@
+open game-of-life.html

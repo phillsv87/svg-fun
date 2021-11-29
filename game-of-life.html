@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no, shrink-to-fit=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>IYIO</title>
+    <link href="game-of-life.css" rel="stylesheet"/>
+</head>
+<body style="background-color: #000;">
+
+    <svg style="position:absolute;left:0;top:0;" id="game-svg" xmlns="http://www.w3.org/2000/svg">
+        <path id="game-path" fill="#00ff00" />
+    </svg>
+
+    <div id="input-overlay"></div>
+
+    <div id="header">
+        <h1 id="iyio">IYIO</h1>
+        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noreferrer">Game of Life</a>
+    </div>
+
+    <div id="hud">
+        <p><a href="#" id="btn-pp">Play</a>: Space</p>
+        <p><a href="#" id="btn-move">Move</a>: Arrows</p>
+        <p><a href="#" id="btn-zoom">Zoom</a>: + -</p>
+        <p><a href="#" id="btn-draw">IYIO</a>: I</p>
+        <p><a href="#" id="btn-clear">Clear</a>: C</p>
+        <p><a href="mailto:scott@iyio.io">Email</a>: E</p>
+    </div>
+
+    <div id="popupPanZoom" class="popup">
+        <div class="popup-bg"></div>
+        <div class="row">
+            <button id="btn-move-up">up</button>
+        </div>
+        <div class="row">
+            <button id="btn-move-left">left</button>
+            <button id="btn-move-right">right</button>
+        </div>
+        <div class="row">
+            <button id="btn-move-down">down</button>
+        </div>
+        <div class="row space">
+            <button id="btn-zoom-out">-</button>
+            <button id="btn-zoom-in">+</button>
+        </div>
+    </div>
+
+    <script src="game-of-life.js"></script>
+</body>
+</html>
