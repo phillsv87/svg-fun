@@ -16,6 +16,8 @@ body {
   touch-action: none;
 }
 #header{
+    position: relative;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
